@@ -1,0 +1,10 @@
+Web Services for users
+    1 - Get Playlists With Songs
+    2 - Get Playlists
+    3 - Get only users
+    4 - Create Playlist in selected user 
+    5 - Create new Playlist
+
+Web Services for playlists 
+    1 - Get albumes with Songs
+    2 - Create new album
