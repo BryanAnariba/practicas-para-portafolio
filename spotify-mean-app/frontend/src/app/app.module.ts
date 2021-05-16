@@ -1,34 +1,36 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './component/header/header.component';
-import { SidebarComponent } from './component/sidebar/sidebar.component';
-import { PlaylistComponent } from './component/playlist/playlist.component';
-import { AlbumComponent } from './component/album/album.component';
+import { HeaderComponent } from './components/header/header.component';
+import { SiderbarComponent } from './components/siderbar/siderbar.component';
+import { PlaylistsComponent } from './components/playlists/playlists.component';
+import { AlbumesComponent } from './components/albumes/albumes.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
+
+import { faMusic } from '@fortawesome/free-solid-svg-icons';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    SidebarComponent,
-    PlaylistComponent,
-    AlbumComponent
+    SiderbarComponent,
+    PlaylistsComponent,
+    AlbumesComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    FontAwesomeModule,
-    HttpClientModule,
-    FormsModule
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor(library: FaIconLibrary) {
+    library.addIcons(faMusic);
+  }
+}

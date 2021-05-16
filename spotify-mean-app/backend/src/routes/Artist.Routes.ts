@@ -10,5 +10,5 @@ const router = Router();
 //     2 - Get albumes
 
 router.get('/', getArtists);
-router.get('/:playlistId/albumes', getAlbumesWithSongs);
+router.get('/:artistId/albumes', getAlbumesWithSongs);
 export default router;

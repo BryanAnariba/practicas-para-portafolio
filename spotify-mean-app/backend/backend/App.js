@@ -1,4 +1,23 @@
 "use strict";
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -40,9 +59,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.App = void 0;
-var express_1 = __importDefault(require("express"));
-var body_parser_1 = require("body-parser");
+var express_1 = __importStar(require("express"));
 var cors_1 = __importDefault(require("cors"));
+var Artist_Routes_1 = __importDefault(require("./routes/Artist.Routes"));
+var User_Routes_1 = __importDefault(require("./routes/User.Routes"));
 var App = /** @class */ (function () {
     function App() {
         this.apiPaths = {
@@ -59,12 +79,14 @@ var App = /** @class */ (function () {
         this.app.use(cors_1.default({ origin: '*', methods: ['GET', 'POST', 'PUT', 'DELETE'] }));
     };
     App.prototype.routes = function () {
+        this.app.use(this.apiPaths.artists, Artist_Routes_1.default);
+        this.app.use(this.apiPaths.users, User_Routes_1.default);
     };
     App.prototype.middlewares = function () {
         // Configurar corst y lectura del body, carpeta publica
         this.app.use(cors_1.default());
-        this.app.use(body_parser_1.json());
-        this.app.use(body_parser_1.urlencoded({ extended: true }));
+        this.app.use(express_1.json());
+        this.app.use(express_1.urlencoded({ extended: true }));
     };
     App.prototype.listen = function () {
         return __awaiter(this, void 0, void 0, function () {

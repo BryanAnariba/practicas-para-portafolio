@@ -1,7 +1,7 @@
 import { connect } from 'mongoose';
 
 export class Connection {
-    private dataBase: string = 'PhotoGallery';
+    private dataBase: string = 'Spotify';
     private port: number = 27017;
     private host: string = 'localhost';
 

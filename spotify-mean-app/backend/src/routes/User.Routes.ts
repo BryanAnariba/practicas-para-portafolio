@@ -17,9 +17,9 @@ import {
 //     5 - Save new Playlist
 
 router.get('/', getUsers);
-router.get('/:userId/playlists/:playlistId', getPlaylistsWithSongs);
-router.get('/playlists', getPlaylists);
+router.get('/:userId/playlist/:playlistId', getPlaylistsWithSongs);
+router.get('/:userId/playlists', getPlaylists);
 router.post('/:userId/playlist/:playlistId/song', saveSongInPlaylist);
-router.get('/playlists', savePlaylist);
+router.post('/:userId/playlists', savePlaylist);
 
 export default router;
