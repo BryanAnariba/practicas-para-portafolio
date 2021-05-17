@@ -1,0 +1,8 @@
+.card-photo {
+  cursor: pointer;
+}
+
+.card-photo:hover {
+  -webkit-box-shadow: -5px 8px 8px 0px rgba(0,0,0,0.45);
+  box-shadow: -5px 8px 8px 0px rgba(0,0,0,0.45);
+}

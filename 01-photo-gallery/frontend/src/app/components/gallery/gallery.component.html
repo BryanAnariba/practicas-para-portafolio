@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xl-4 p-4" *ngFor="let photo of photos">
+      <div class="card card-photo animate__animated animate__flipInY" (click)="selectedCard( photo._id )">
+        <div class="card-header text-center text-white bg-info">
+          {{ photo.title }}
+        </div>
+        <div class="card-body">
+          <img
+            [src]="'http://localhost:3500/' + photo.imagePath"
+            alt="{{ photo.title }}"
+            class="img-card-top w-100">
+        </div>
+        <div class="card-footer bg-dark">
+          <footer class="blockquote-footer text-white ml-auto">
+            {{ photo.description }}
+          </footer>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

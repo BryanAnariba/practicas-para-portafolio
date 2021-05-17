@@ -8,3 +8,14 @@ Web Services for users
 Web Services for playlists 
     1 - Get albumes with Songs
     2 - Create new album
+
+-Decoradores del frontend
+    Ver artistas =
+        desde el sidebar.component.ts -> va un @Output -> indicando que dio click en ver artistas para ver
+        los albumes del artista dicho mensaje cae a app.component.ts, para despues comunicarle al
+        componente albumes.component.ts que debe mostrar los albumes que de los artistas disponibles
+
+    Ver Playlist
+        desde el sidebar.component.ts -> va un @Output -> indicando que dio click en ver alguna de las playlist del
+        usuario dicho mensaje cae a app.component.ts, para despues comunicarle al componente playlist.component.ts 
+        que debe mostrar las playlist que tienen el usuario guardada

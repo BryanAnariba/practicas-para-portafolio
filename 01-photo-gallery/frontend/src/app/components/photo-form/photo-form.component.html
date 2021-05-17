@@ -1,0 +1,76 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-xl-6 mx-auto">
+      <div class="card">
+        <div class="card-header bg-primary text-center text-white">
+          <h2>
+            Upload new photo
+          </h2>
+        </div>
+        <div class="card-body">
+          <form class="form" [formGroup]="newPhoto">
+            <div class="md-form mt-3">
+              <input
+                type="text"
+                id="photoTitle"
+                formControlName="title"
+                [ngClass]="{'input-error': title?.invalid && (title?.dirty || title?.touched)}"
+                class="form-control"
+                >
+                <div class="mt-1" *ngIf="title?.invalid && (title?.dirty || title?.touched)">
+                  <span class="text-danger text-small" *ngIf="title?.errors?.required">Error el campo es obligatorio</span>
+                  <span class="text-danger text-small" *ngIf="title?.errors?.maxlength">Error, maximo de caracteres 60</span>
+                  <span class="text-danger text-small" *ngIf="title?.errors?.minlength">Error, minimo de caracteres 1</span>
+                </div>
+              <label for="photoTitle">Photo Title</label>
+            </div>
+            <div class="md-form mt-3">
+              <input
+                type="text"
+                formControlName="description"
+                [ngClass]="{'input-error': description?.invalid && (description?.dirty || description?.touched)}"
+                class="form-control">
+                <div class="mt-1" *ngIf="description?.invalid && (description?.dirty || description?.touched)">
+                  <span class="text-danger text-small" *ngIf="description?.errors?.required">Error el campo es obligatorio</span>
+                  <span class="text-danger text-small" *ngIf="description?.errors?.maxlength">Error, maximo de caracteres 150</span>
+                  <span class="text-danger text-small" *ngIf="description?.errors?.minlength">Error, minimo de caracteres 1</span>
+                </div>
+              <label for="photoDescription">Photo Description</label>
+            </div>
+            <div class="md-form mt-3 d-flex">
+              <input
+                type="file"
+                class="d-none"
+                [ngClass]="{'input-error': image?.invalid && (image?.dirty || image?.touched)}"
+                formControlName="image"
+                (change)="previewPhoto($event)"
+                #photoInput
+                required>
+                <!--Condicion en SRC si hay un archivo que lo muestre caso contrario que muestre imagen por-->
+              <img
+                [src]="photoSelected || 'assets/img/upload-photo.jpg'"
+                class="img-fluid mx-auto"
+                alt="no image avaliable"
+                (click)="photoInput.click()">
+
+
+              </div>
+            <div class="mt-1" *ngIf="image?.invalid && (image?.dirty || image?.touched)">
+              <span class="text-danger text-small" *ngIf="image?.errors?.required">Error el campo es obligatorio</span>
+              <span class="text-danger text-small" *ngIf="image?.errors?.required">Error, el formato del archivo debe ser (jpg, png, gif)</span>
+            </div>
+            <button
+              class="btn btn-primary btn-block mb-4 mt-2"
+              [disabled]="!newPhoto.valid"
+              (click)="savePhoto()">
+              Save Photo
+            </button>
+          </form>
+        </div>
+        <div class="card-footer bg-dark">
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

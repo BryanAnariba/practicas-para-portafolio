@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { faMusic } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-root',
@@ -8,5 +7,18 @@ import { faMusic } from '@fortawesome/free-solid-svg-icons';
 })
 export class AppComponent {
   title = 'frontend';
-  faMusic = faMusic;
+  vistaSeleccionada: string = '';
+
+  // Capturando evento producido en sidebar.component.ts para ver albumes de un artista seleccionado
+  verArtista (artistData: any) {
+    this.vistaSeleccionada = 'artistas';
+    console.log(artistData);
+  }
+
+  // Capturando evento producido en sidebar.component.ts para ver playlists de un usuario seleccionado
+  verPlaylist (playlistData: any) {
+    this.vistaSeleccionada = 'playlists';
+    console.log(playlistData);
+  }
 }
+

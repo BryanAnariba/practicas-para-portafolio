@@ -1,0 +1,79 @@
+<div class="container">
+  <div class="row mt-5 " *ngIf="!photo; else photoPreview">
+    <div class="col-xl-12">
+      <div class="alert alert-primary text-center" role="alert">
+        Loading ...
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #photoPreview>
+  <div class="container">
+    <div class="row mt-5 mx-auto">
+      <div class="col-md-5 col-sm-12 mx-auto">
+        <div class="card animate__animated animate__backInDown">
+          <div class="card-header text-center text-white bg-info">
+            {{ photo?.title }}
+          </div>
+          <div class="card-body">
+            <img
+              [src]="'http://localhost:3500/' + photo?.imagePath"
+              alt="{{ photo?.title }}"
+              class="img-card-top w-100 image-fluid"/>
+          </div>
+          <div class="card-footer bg-dark">
+            <footer class="blockquote-footer text-white ml-auto">
+              {{ photo?.description }}
+            </footer>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-7 col-sm-12">
+        <div class="card animate__animated animate__backInDown">
+          <form class="card-body" [formGroup]="updatePhotoData">
+            <div class="md-form mt-3">
+              <input
+                type="text"
+                id="photoTitle"
+                formControlName="title"
+                [ngClass]="{'input-error': title?.invalid && (title?.dirty || title?.touched)}"
+                class="form-control mdb-input"
+                >
+                <div class="mt-1" *ngIf="title?.invalid && (title?.dirty || title?.touched)">
+                  <span class="text-danger text-small" *ngIf="title?.errors?.required">Error el campo es obligatorio</span>
+                  <span class="text-danger text-small" *ngIf="title?.errors?.maxlength">Error, maximo de caracteres 60</span>
+                  <span class="text-danger text-small" *ngIf="title?.errors?.minlength">Error, minimo de caracteres 1</span>
+                </div>
+              <label for="photoTitle" class="mdb-input" [ngClass]="{'active': title}">Photo Title</label>
+            </div>
+            <div class="md-form mt-3">
+              <input
+                type="text"
+                formControlName="description"
+                [ngClass]="{'input-error': description?.invalid && (description?.dirty || description?.touched)}"
+                class="form-control">
+                <div class="mt-1" *ngIf="description?.invalid && (description?.dirty || description?.touched)">
+                  <span class="text-danger text-small" *ngIf="description?.errors?.required">Error el campo es obligatorio</span>
+                  <span class="text-danger text-small" *ngIf="description?.errors?.maxlength">Error, maximo de caracteres 150</span>
+                  <span class="text-danger text-small" *ngIf="description?.errors?.minlength">Error, minimo de caracteres 1</span>
+                </div>
+              <label for="photoDescription" [ngClass]="{ 'active': description }">Photo Description</label>
+            </div>
+            <button
+              class="btn btn-primary btn-block mb-4 mt-2"
+              [disabled]="!updatePhotoData.valid"
+              (click)="updatePhoto()">
+              Update Photo
+            </button>
+            <button
+              class="btn btn-danger btn-block mb-4 mt-2"
+              (click)="deletePhoto()">
+              Delete Photo
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>
