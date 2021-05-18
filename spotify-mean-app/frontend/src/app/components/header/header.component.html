@@ -4,8 +4,75 @@
   <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
   <ul class="navbar-nav px-3">
     <li class="nav-item text-nowrap">
-      <a class="nav-link" href="#" data-toggle="modal" data-target="#modal-playlist">Nueva playlist</a>
-      <a class="nav-link" href="#" data-toggle="modal" data-target="#modal-usuarios">Cambiar usuario</a>
+      <a class="nav-link" href="#" data-toggle="modal" (click)="createNewPlaylist(playlistModal)">New playlist</a>
+      <a class="nav-link" href="#" data-toggle="modal" (click)="createNewUser(userModal)">Change user</a>
     </li>
   </ul>
 </nav>
+
+<!--Modal Playlists-->
+<ng-template #playlistModal let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">
+      New Playlist
+    </h4>
+    <button class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">
+        &times;
+      </span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form action="form-control" [formGroup]="newPlaylistForm">
+      <input
+        type="text"
+        placeholder="Write a new playlist"
+        class="form-control"
+        id="tituloPlayList"
+        formControlName="tituloPlayList"
+        [ngClass]="{
+          'input-error':
+            tituloPlayList?.invalid && (tituloPlayList?.dirty || tituloPlayList?.touched)
+          }">
+
+          <div class="mt-1" *ngIf="tituloPlayList?.invalid && (tituloPlayList?.dirty || tituloPlayList?.touched)">
+            <ngb-alert type="danger" [dismissible]="false" *ngIf="tituloPlayList?.errors?.required"><strong>Error: </strong> The field is required
+            </ngb-alert>
+            <ngb-alert type="danger" [dismissible]="false" *ngIf="tituloPlayList?.errors?.minlength"><strong>Error: </strong> Min characters are 2
+            </ngb-alert>
+            <ngb-alert type="danger" [dismissible]="false" *ngIf="tituloPlayList?.errors?.maxlength"><strong>Error: </strong> Max characters are 80
+            </ngb-alert>
+          </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-success" [disabled]="!newPlaylistForm.valid" (click)="savePlaylist()">Save</button>
+    <button type="button" class="btn btn-outline-success" (click)="modal.close('Select click')">Close</button>
+  </div>
+</ng-template>
+
+<!--Modal Usuarios-->
+<ng-template #userModal let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">
+      Select User
+    </h4>
+    <button class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">
+        &times;
+      </span>
+    </button>
+  </div>
+  <div class="modal-body">
+    Seleccione un usuario
+    <select class="form-control" (change)="userSelected($event)">
+      <option value="">Select user</option>
+      <option  *ngFor="let user of users" [value]="user._id">{{ user.nombreUsuario }}</option>
+    </select>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-success" (click)="getUserPlaylists()">Save</button>
+    <button type="button" class="btn btn-outline-success" (click)="modal.close('Select click')">Close</button>
+  </div>
+</ng-template>
+

@@ -19,3 +19,8 @@ Web Services for playlists
         desde el sidebar.component.ts -> va un @Output -> indicando que dio click en ver alguna de las playlist del
         usuario dicho mensaje cae a app.component.ts, para despues comunicarle al componente playlist.component.ts 
         que debe mostrar las playlist que tienen el usuario guardada
+
+
+    https://www.youtube.com/watch?v=tcskp-ncN0I
+
+    https://www.youtube.com/watch?v=4YAiwzUQjYw&t=554s
