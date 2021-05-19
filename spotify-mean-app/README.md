@@ -2,7 +2,7 @@
 
 
 # Capturas
-    ![Screenshot](https://github.com/BryanAnariba/practicas-para-portafolio/blob/main/spotify-mean-app/screenshot-one.)PNG
+    ![Screenshot](screenshot-one.png)PNG
 
     ![Screenshot](https://github.com/BryanAnariba/practicas-para-portafolio/blob/main/spotify-mean-app/)screenshot-three.PNG
 
