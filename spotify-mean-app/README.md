@@ -3,7 +3,7 @@
 
 # Images
 
- <img src="screenshot-one.png" alt="first-image">
+ <img src="./screenshot-one.png" alt="first-image">
 
     ![Screenshot](https://github.com/BryanAnariba/practicas-para-portafolio/blob/main/spotify-mean-app/)screenshot-three.PNG
 
