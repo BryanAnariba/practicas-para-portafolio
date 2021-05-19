@@ -3,7 +3,7 @@
 
 # Images
 
-    [](screenshot-one.PNG)
+    ![Alt text](screenshot-one.PNG?raw=true "Optional Title")
 
     ![Screenshot](https://github.com/BryanAnariba/practicas-para-portafolio/blob/main/spotify-mean-app/)screenshot-three.PNG
 
