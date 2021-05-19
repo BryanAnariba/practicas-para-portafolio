@@ -2,7 +2,7 @@
 
 
 # Capturas
-    ![Screenshot](screenshot-one.png)PNG
+    [](./screenshot-one.png)
 
     ![Screenshot](https://github.com/BryanAnariba/practicas-para-portafolio/blob/main/spotify-mean-app/)screenshot-three.PNG
 
