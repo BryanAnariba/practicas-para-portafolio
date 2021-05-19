@@ -1,21 +1,32 @@
 <router-outlet>
-  <app-header></app-header>
+  <app-header
+    #header
+    (onViewPlaylists)="getUserPlaylists($event)"
+  ></app-header>
 
   <div class="container-fluid">
     <div class="row">
       <app-siderbar
+        #sidebar
         (onViewAlbumes)="verArtista($event)"
         (onViewPlaylists)="verPlaylist($event)"
       >
       </app-siderbar>
 
       <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
-        <div id="vista-playlist" *ngIf="vistaSeleccionada === 'playlists'">
-          <app-playlists></app-playlists>
+        <div id="vista-playlist" [ngClass]="{'visible': vistaSeleccionada == 'playlists', 'no-visible': vistaSeleccionada != 'playlists'}">
+          <app-playlists
+            #playlist
+          >
+          </app-playlists>
         </div>
 
-        <div id="vista-artista" *ngIf="vistaSeleccionada === 'artistas'">
-          <app-albumes></app-albumes>
+        <div id="vista-artista" [ngClass]="{'visible': vistaSeleccionada == 'artistas', 'no-visible': vistaSeleccionada != 'artistas'}">
+          <app-albumes
+            #albumes
+            (refreshPlaylists)="refreshUserPlaylists()"
+          >
+          </app-albumes>
         </div>
       </main>
 

@@ -16,4 +16,22 @@ export class UsersService {
   getPlaylistByUser = ( userId: string ): Observable<any> => {
     return this.httpClient.get(`${ this.API_SERVER }/${ userId }/playlists`, {});
   }
+
+  saveSongInPlaylist = (
+    songData: any,
+    album: string,
+    userId: string,
+    playlistId: string): Observable<any> => {
+    return this.httpClient.post(`${ this.API_SERVER }/${ userId }/playlist/${ playlistId }/song`, {
+      nombreCancion: songData.nombreCancion,
+      artista: songData.artista,
+      album: album
+    });
+  }
+
+  savePlaylist = (playlistData: any, userId: string): Observable<any> => {
+    return this.httpClient.post(`${ this.API_SERVER }/${ userId }/playlists`, {
+      tituloPlayList: playlistData.tituloPlayList
+    });
+  }
 }

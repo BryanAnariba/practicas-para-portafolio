@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
@@ -6,7 +6,6 @@ import { ToastrService } from 'ngx-toastr';
 import { UsersService } from 'src/app/services/users.service';
 import { IUsers } from 'src/app/interfaces/iusers';
 import { IPlaylists } from 'src/app/interfaces/iplaylists';
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: 'app-header',
@@ -59,27 +58,36 @@ export class HeaderComponent implements OnInit {
 
   public userSelected = (userSelected: any) => {
     this.user = userSelected.target.value;
-    console.log(this.user);
   }
 
+  // Decorador para comunicarme con el componente sidebar para mostrar las playlists segun el usuario seleccionado
+  @Output() onViewPlaylists = new EventEmitter();
   public getUserPlaylists = () => {
     if (this.user.length === 0) {
       this.toastr.error('Please Select an user', 'Error');
     } else {
-      this.usersService.getPlaylistByUser( this.user )
+      this.onViewPlaylists.emit({ userId: this.user });
+      this.modalService.dismissAll();
+    }
+  }
+
+
+  public savePlaylist = () => {
+    if (this.user === '') {
+      this.toastr.error('Please select an user', 'Error');
+    } else {
+      this.usersService.savePlaylist(this.newPlaylistForm.value, this.user)
       .subscribe(
-        (playlists: any) => {
-          this.playlists = playlists.data;
-          console.log(this.playlists);
+        (result: any) => {
+          this.modalService.dismissAll();
+          this.newPlaylistForm.reset();
+          this.getUserPlaylists();
+          this.toastr.success('Playlist added successfully');
         },
         (error: any) => {
           this.toastr.error(error, 'Error');
         }
       );
     }
-  }
-
-  public savePlaylist = () => {
-
   }
 }

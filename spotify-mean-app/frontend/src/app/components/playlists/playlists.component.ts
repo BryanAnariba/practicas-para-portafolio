@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { ToastrService } from 'ngx-toastr';
 import { faMusic, faPlay, faPlus } from '@fortawesome/free-solid-svg-icons';
+import { IPlaylists } from 'src/app/interfaces/iplaylists';
 
 @Component({
   selector: 'app-playlists',
@@ -10,18 +11,18 @@ import { faMusic, faPlay, faPlus } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./playlists.component.scss']
 })
 export class PlaylistsComponent implements OnInit {
-
   faMusic = faMusic;
   faPlay = faPlay;
   faPlus = faPlus;
+  playlist: any = {};
   constructor(private toastr: ToastrService) { }
 
   ngOnInit(): void {
 
   }
 
-  showSuccess() {
-    this.toastr.success('Hello world!', 'Toastr fun!');
+  public getPlaylist = (playlist: IPlaylists) => {
+    this.playlist = playlist;
+    console.log(this.playlist)
   }
-
 }

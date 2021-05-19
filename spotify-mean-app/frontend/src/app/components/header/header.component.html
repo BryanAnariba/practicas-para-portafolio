@@ -64,14 +64,14 @@
     </button>
   </div>
   <div class="modal-body">
-    Seleccione un usuario
+    Select User
     <select class="form-control" (change)="userSelected($event)">
       <option value="">Select user</option>
       <option  *ngFor="let user of users" [value]="user._id">{{ user.nombreUsuario }}</option>
     </select>
   </div>
   <div class="modal-footer">
-    <button type="button" class="btn btn-outline-success" (click)="getUserPlaylists()">Save</button>
+    <button type="button" class="btn btn-outline-success" (click)="getUserPlaylists()">View Playlists</button>
     <button type="button" class="btn btn-outline-success" (click)="modal.close('Select click')">Close</button>
   </div>
 </ng-template>

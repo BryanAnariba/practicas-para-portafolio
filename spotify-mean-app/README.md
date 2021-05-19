@@ -1,0 +1,1 @@
+# Plataforma creada con el stack MEAN mas Typescript

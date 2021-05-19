@@ -15,8 +15,8 @@ export class ArtistsService {
     return this.httpClient.get(`${ this.API_SERVER }`, {});
   }
 
-  public getPlaylists = (): Observable<any> => {
-    return this.httpClient.get(``, {});
+  public getAlbumes = (artistData: any): Observable<any> => {
+    return this.httpClient.get(`${ this.API_SERVER }/${ artistData._id }/albumes`, {});
   }
 
 }

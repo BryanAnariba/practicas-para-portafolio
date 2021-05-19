@@ -15,7 +15,7 @@ import { faMusic } from '@fortawesome/free-solid-svg-icons';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { HttpClientModule } from '@angular/common/http';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -34,6 +34,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     ToastrModule.forRoot(), // ToastrModule added
     HttpClientModule, //
     ReactiveFormsModule, //
+    FormsModule, //
   ],
   providers: [],
   bootstrap: [AppComponent]
