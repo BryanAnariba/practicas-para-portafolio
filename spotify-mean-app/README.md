@@ -2,11 +2,7 @@
 
 
 # Capturas+
-    ![](images/img-1.png)
-    ![img](img-1.PNG)
-    ![img](img-2.PNG)
-    ![img](img-3.PNG)
-    ![img](img-4.PNG)
+![](images/img-1.png)
     
 
 # Demo Video 
