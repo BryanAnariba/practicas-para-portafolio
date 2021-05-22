@@ -13,7 +13,18 @@ export const Service = () => {
                             <div className="box">
                                 <i className="fas fa-laptop-code"></i>
                                 <div className="text">
-                                    Diseño Web Responsive
+                                    Desarrollo y Mantenimiento Frontend de Aplicaciones
+                                </div>
+                                <p>
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic ipsam libero voluptas repudiandae. Veritatis animi debitis magnam exercitationem consequuntur. Asperiores.
+                                </p>
+                            </div>
+                        </div>
+                        <div className="card">
+                            <div className="box">
+                                <i className="fas fa-laptop-code"></i>
+                                <div className="text">
+                                    Desarrollo y Mantenimiento Backend de Aplicaciones
                                 </div>
                                 <p>
                                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic ipsam libero voluptas repudiandae. Veritatis animi debitis magnam exercitationem consequuntur. Asperiores.
@@ -24,18 +35,7 @@ export const Service = () => {
                             <div className="box">
                                 <i className="fas fa-mobile-alt"></i>
                                 <div className="text">
-                                    Diseño de Apps
-                                </div>
-                                <p>
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic ipsam libero voluptas repudiandae. Veritatis animi debitis magnam exercitationem consequuntur. Asperiores.
-                                </p>
-                            </div>
-                        </div>
-                        <div className="card">
-                            <div className="box">
-                            <i className="fas fa-cogs"></i>
-                                <div className="text">
-                                    Mantenimiento De Software
+                                    Diseño y Desarrollo de Aplicaciones Moviles Multiplataforma
                                 </div>
                                 <p>
                                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic ipsam libero voluptas repudiandae. Veritatis animi debitis magnam exercitationem consequuntur. Asperiores.
