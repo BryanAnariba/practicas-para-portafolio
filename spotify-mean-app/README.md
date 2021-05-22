@@ -2,7 +2,7 @@
 
 
 # Capturas+
-![](images/img-1.png)
+![](images/img-1.PNG)
     
 
 # Demo Video 
