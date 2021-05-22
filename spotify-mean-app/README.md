@@ -2,7 +2,7 @@
 
 
 # Capturas+
-    ![](images/img-1png)
+    ![](images/img-1.png)
     ![img](img-1.PNG)
     ![img](img-2.PNG)
     ![img](img-3.PNG)
