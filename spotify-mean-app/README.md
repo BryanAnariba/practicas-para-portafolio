@@ -1,12 +1,12 @@
 # Plataforma creada con el stack MEAN mas Typescript
 
 
-# Capturas
-    [](./screenshot-one.png)
-
-    ![Screenshot](https://github.com/BryanAnariba/practicas-para-portafolio/blob/main/spotify-mean-app/)screenshot-three.PNG
-
-    ![Screenshot](https://github.com/BryanAnariba/practicas-para-portafolio/blob/main/spotify-mean-app/screenshot-two.)PNG
+# Capturas+
+    ![img](img-1.PNG)
+    ![img](img-2.PNG)
+    ![img](img-3.PNG)
+    ![img](img-4.PNG)
+    
 
 # Demo Video 
-    https://github.com/BryanAnariba/practicas-para-portafolio/blob/main/spotify-mean-app/video-spotify-platform.mp4
+    

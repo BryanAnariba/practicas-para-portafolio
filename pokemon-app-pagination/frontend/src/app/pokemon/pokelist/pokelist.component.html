@@ -1,0 +1,45 @@
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-lg-10 mx-auto text-center">
+      <h2 class="text-white display-4">Pokemons App Api With Pagination</h2>
+    </div>
+  </div>
+  <div class="row mt-5" *ngIf="pokemons.length != 0 else isLoading">
+    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 animate__animated animate__flipInY"
+      *ngFor="let pokemon of pokemons | filtradopokemons: page: pokemon">
+      <div class="card mt-3" style="width: 15rem;">
+        <img class="card-img-top" [src]="pokemon.pic" [alt]="pokemon.name">
+        <div class="card-body mx-auto">
+          <h5 class="card-title">{{ pokemon.id }} - {{ pokemon.name }}</h5>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row mt-5 mx-auto">
+    <div class="col-lg-8 mx-auto">
+      <input type="text" class="form-control" placeholder="Search a Pokemon" #search
+        (keyup)="searchPokemon(search.value)">
+    </div>
+  </div>
+  <div class="row mt-5 mx-auto">
+    <div class="col-xl-6">
+      <button (click)="prevPage()" class="btn btn-primary d-flex ml-auto">Anterior</button>
+    </div>
+    <div class="col-xl-6">
+      <button (click)="nextPage()" class="btn btn-primary"
+        [disabled]="(pokemons | filtradopokemons: page: pokemon).length === 0">Siguiente</button>
+    </div>
+  </div>
+</div>
+
+<ng-template #isLoading>
+  <div class="col-xl-12 mx-auto">
+    <div class="lds-ring mx-auto d-flex">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+</ng-template>
