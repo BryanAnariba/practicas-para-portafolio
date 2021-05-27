@@ -1,0 +1,124 @@
+<div class="container">
+  <div class="row mt-9 new-margin">
+    <div class="nt-4 col-8 offset-2">
+      <div class="card">
+        <article class="card-body">
+          <a [routerLink]="'/login'" class="float-right btn btn-outline-primary">Sign In</a>
+          <h4 class="card-title mb-4 mt-1">Sign Up Form</h4>
+          <hr>
+          <form [formGroup]="userCredentials">
+            <div class="form-group">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text bg-primary text-white">
+                    <fa-icon [icon]="faUser"></fa-icon>
+                  </span>
+                </div>
+                <input
+                  name="name"
+                  class="form-control"
+                  placeholder="Full name"
+                  type="text"
+                  formControlName="name"
+                  required
+                  [ngClass]="{
+                    'input-error':
+                      name?.invalid && (name?.dirty || name?.touched)
+                    }">
+              </div> <!-- input-group.// -->
+              <div class="mt-1" *ngIf="name?.invalid && (name?.dirty || name?.touched)">
+                <ngb-alert type="danger" [dismissible]="false" *ngIf="name?.errors?.required"><strong>Error: </strong> The name field is required
+                </ngb-alert>
+                <ngb-alert type="danger" [dismissible]="false" *ngIf="name?.errors?.minLength"><strong>Error: </strong> The minimum characters of name field should be 2
+                </ngb-alert>
+                <ngb-alert type="danger" [dismissible]="false" *ngIf="name?.errors?.maxLength"><strong>Error: </strong> The maximun characters of name field should be 80
+                </ngb-alert>
+                <ngb-alert type="danger" [dismissible]="false" *ngIf="name?.errors?.pattern"><strong>Error: </strong> Invalid name
+                </ngb-alert>
+              </div>
+            </div> <!-- form-group// -->
+            <div class="form-group">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text bg-primary text-white">
+                    <fa-icon [icon]="faUser"></fa-icon>
+                  </span>
+                </div>
+                <input
+                  name="email"
+                  class="form-control"
+                  placeholder="Email or login"
+                  type="email"
+                  formControlName="email"
+                  required
+                  [ngClass]="{
+                    'input-error':
+                      email?.invalid && (email?.dirty || email?.touched)
+                    }">
+              </div> <!-- input-group.// -->
+              <div class="mt-1" *ngIf="email?.invalid && (email?.dirty || email?.touched)">
+                <ngb-alert type="danger" [dismissible]="false" *ngIf="email?.errors?.required"><strong>Error: </strong> The email field is required
+                </ngb-alert>
+                <ngb-alert type="danger" [dismissible]="false" *ngIf="email?.errors?.pattern"><strong>Error: </strong> invalid email
+                </ngb-alert>
+              </div>
+            </div> <!-- form-group// -->
+            <div class="form-group">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text bg-primary text-white">
+                    <fa-icon [icon]="faLock"></fa-icon>
+                  </span>
+                </div>
+                <input
+                  class="form-control"
+                  placeholder="Password"
+                  type="password"
+                  formControlName="password"
+                  required
+                  [ngClass]="{
+                    'input-error':
+                      password?.invalid && (password?.dirty || password?.touched)
+                    }">
+              </div> <!-- input-group.// -->
+              <div class="mt-1" *ngIf="password?.invalid && (password?.dirty || password?.touched)">
+                <ngb-alert type="danger" [dismissible]="false" *ngIf="password?.errors?.required"><strong>Error: </strong> The password field is required
+                </ngb-alert>
+              </div>
+            </div> <!-- form-group// -->
+            <div class="form-group">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text bg-primary text-white">
+                    <fa-icon [icon]="faLock"></fa-icon>
+                  </span>
+                </div>
+                <input
+                  class="form-control"
+                  placeholder="Confirm Password"
+                  type="password"
+                  formControlName="confirmPassword"
+                  required
+                  [ngClass]="{
+                    'input-error':
+                      confirmPassword?.invalid && (confirmPassword?.dirty || confirmPassword?.touched)
+                    }">
+              </div> <!-- input-group.// -->
+              <div class="mt-1" *ngIf="confirmPassword?.invalid && (confirmPassword?.dirty || confirmPassword?.touched)">
+                <ngb-alert type="danger" [dismissible]="false" *ngIf="confirmPassword?.errors?.required"><strong>Error: </strong> The confirm Password field is required
+                </ngb-alert>
+              </div>
+            </div> <!-- form-group// -->
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <button type="submit" class="btn btn-primary btn-block" [disabled]="!userCredentials.valid" (click)="signUp()"> Register </button>
+                </div> <!-- form-group// -->
+              </div>
+            </div> <!-- .row// -->
+          </form>
+        </article>
+      </div> <!-- card.// -->
+    </div>
+  </div>
+</div>

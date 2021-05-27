@@ -1,0 +1,74 @@
+<div class="container">
+  <div class="row mt-9 new-margin">
+    <div class="nt-4 col-8 offset-2">
+      <div class="card">
+        <article class="card-body">
+          <a [routerLink]="'/signup'" class="float-right btn btn-outline-primary">Sign up</a>
+          <h4 class="card-title mb-4 mt-1">Login Form</h4>
+          <hr>
+          <form [formGroup]="userCredentials">
+            <div class="form-group">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text bg-primary text-white">
+                    <fa-icon [icon]="faUser"></fa-icon>
+                  </span>
+                </div>
+                <input
+                  name="email"
+                  class="form-control"
+                  placeholder="Email or login"
+                  type="email"
+                  formControlName="email"
+                  required
+                  [ngClass]="{
+                    'input-error':
+                      email?.invalid && (email?.dirty || email?.touched)
+                    }">
+              </div> <!-- input-group.// -->
+              <div class="mt-1" *ngIf="email?.invalid && (email?.dirty || email?.touched)">
+                <ngb-alert type="danger" [dismissible]="false" *ngIf="email?.errors?.required"><strong>Error: </strong> The email field is required
+                </ngb-alert>
+                <ngb-alert type="danger" [dismissible]="false" *ngIf="email?.errors?.pattern"><strong>Error: </strong> invalid email
+                </ngb-alert>
+              </div>
+            </div> <!-- form-group// -->
+            <div class="form-group">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text bg-primary text-white">
+                    <fa-icon [icon]="faLock"></fa-icon>
+                  </span>
+                </div>
+                <input
+                  class="form-control"
+                  placeholder="******"
+                  type="password"
+                  formControlName="password"
+                  required
+                  [ngClass]="{
+                    'input-error':
+                      password?.invalid && (password?.dirty || password?.touched)
+                    }">
+              </div> <!-- input-group.// -->
+              <div class="mt-1" *ngIf="password?.invalid && (password?.dirty || password?.touched)">
+                <ngb-alert type="danger" [dismissible]="false" *ngIf="password?.errors?.required"><strong>Error: </strong> The password field is required
+                </ngb-alert>
+              </div>
+            </div> <!-- form-group// -->
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <button type="submit" class="btn btn-primary btn-block" [disabled]="!userCredentials.valid" (click)="signIn()"> Login </button>
+                </div> <!-- form-group// -->
+              </div>
+              <div class="col-md-6 text-right">
+                <a class="small" href="#">Forgot password?</a>
+              </div>
+            </div> <!-- .row// -->
+          </form>
+        </article>
+      </div> <!-- card.// -->
+    </div>
+  </div>
+</div>
