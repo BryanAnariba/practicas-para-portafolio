@@ -1,10 +1,10 @@
 import express, { Application, json, urlencoded } from 'express';
 import cors from 'cors';
 
-import UserRoutes from './routes/User.Routes';
-import AuthRoutes from './routes/Auth.Routes';
-import OrderRoutes from './routes/Order.Routes';
-import ProductsRoutes from './routes/Products.Routes';
+import { UserRoutes } from './routes/User.Routes';
+import { AuthRoutes } from './routes/Auth.Routes';
+import { OrderRoutes } from './routes/Order.Routes';
+import { ProductRoutes } from './routes/Products.Routes';
 
 class App {
     private app: Application;
@@ -39,7 +39,7 @@ class App {
     public routes = (): void => {
         this.app.use( this.endPoints.auth, AuthRoutes );
         this.app.use( this.endPoints.users, UserRoutes );
-        this.app.use( this.endPoints.products, ProductsRoutes );
+        this.app.use( this.endPoints.products, ProductRoutes );
         this.app.use( this.endPoints.orders, OrderRoutes );
     }
 
