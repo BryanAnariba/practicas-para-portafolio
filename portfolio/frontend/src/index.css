@@ -186,10 +186,10 @@ section .title::after{
 }
 
 .about .title::after {
-    content: "Quien Soy Yo";
+    content: "Who I am";
 }
 
-.about .about-content {
+.about .about-content, .skills .skills-content {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -261,7 +261,7 @@ section .title::after{
 
 .services .title::after {
     background: #111;
-    content: "Servicios a ofrecer";
+    content: "Services that i offer";
 }
 
 .services .serv-content .card {
@@ -302,6 +302,116 @@ section .title::after{
 }
 
 /* skills  sections styles */
+.skills .title::after {
+    content: 'What i know';
+}
+
+.skills .skills-content .column {
+    width: calc(50% - 30px);
+}
+
+.skills .skills-content .left .text {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.skills .skills-content .left p {
+    text-align: justify;
+}
+.skills .skills-content .left a {
+    display: inline-block;
+    background: crimson;
+    color: #fff;
+    font-size: 18px;
+    padding: 8px 16px;
+    margin-top: 20px;
+    border-radius: 8px;
+    border: solid 3px crimson;
+    transition: all 0.3s ease;
+}
+
+.skills .skills-content .left a:hover {
+    color: crimson;
+    background: #fff;
+    border: solid 3px crimson;
+}
+
+.skills .skills-content .right .bars {
+    margin-bottom: 15px;
+} 
+
+.skills .skills-content .right .info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+    justify-content: space-between;
+}
+
+.skills .skills-content .right span {
+    
+    font-family: 'Poppins' sans-serif; 
+    font-weight: 600;
+    font-size: 18px; 
+}
+
+.skills .skills-content .right .line {
+    height: 5px;
+    width: 100%;
+    background: lightgray;
+    position: relative;
+}
+
+.skills .skills-content .right .line::before {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 80%;
+    left: 0;
+    top: 0;
+    background: crimson;
+}
+
+.skills .skills-content .right .html::before {
+    width: 90%;
+}
+.skills .skills-content .right .css::before {
+    width: 75%;
+}
+.skills .skills-content .right .sass::before {
+    width: 65%;
+}
+.skills .skills-content .right .js::before {
+    width: 90%;
+}
+.skills .skills-content .right .ts::before {
+    width: 70%;
+}
+.skills .skills-content .right .laravel::before {
+    width: 60%;
+}
+.skills .skills-content .right .python::before {
+    width: 75%;
+}
+.skills .skills-content .right .node::before {
+    width: 90%;
+}
+.skills .skills-content .right .angular::before {
+    width: 80%;
+}
+.skills .skills-content .right .react::before {
+    width: 70%;
+}
+.skills .skills-content .right .native::before {
+    width: 70%;
+}
+.skills .skills-content .right .sql::before {
+    width: 80%;
+}
+.skills .skills-content .right .nosql::before {
+    width: 80%;
+}
+
 
 /* Medias queries */
 @media only screen and (max-width: 1300px) { 
@@ -418,6 +528,11 @@ section .title::after{
     .services .serv-content .card {
         width: 100%;
         margin-bottom: 20px;
+    }
+
+    .skills .skills-content .column {
+        width: 100%;
+        margin-top: 10px;
     }
 }
 

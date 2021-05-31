@@ -22,7 +22,7 @@ export const Service = () => {
                         </div>
                         <div className="card">
                             <div className="box">
-                                <i className="fas fa-laptop-code"></i>
+                                <i className="fas fa-code"></i>
                                 <div className="text">
                                     Desarrollo y Mantenimiento Backend de Aplicaciones
                                 </div>
@@ -35,7 +35,7 @@ export const Service = () => {
                             <div className="box">
                                 <i className="fas fa-mobile-alt"></i>
                                 <div className="text">
-                                    Diseño y Desarrollo de Aplicaciones Moviles Multiplataforma
+                                    Desarrollo de Aplicaciones Moviles Multiplataforma
                                 </div>
                                 <p>
                                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic ipsam libero voluptas repudiandae. Veritatis animi debitis magnam exercitationem consequuntur. Asperiores.
